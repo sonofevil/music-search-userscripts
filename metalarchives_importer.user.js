@@ -26,8 +26,7 @@ $(document).ready(function () {
 });
 
 function setreleasedate(release, datestring) {
-    release.year = d.getFullYear();
-    /*if (/^\d{4}$/.exec(datestring)) {
+    if (/^\d{4}$/.exec(datestring)) {
         release.year = datestring;
     } else if (datestring.indexOf(',') != -1) {
         let commaindex = datestring.indexOf(',');
@@ -39,7 +38,7 @@ function setreleasedate(release, datestring) {
         var d = new Date(`2 ${datestring}`);
         release.year = d.getFullYear();
         release.month = d.getMonth() + 1;
-    }*/
+    }
     return release;
 }
 
@@ -68,22 +67,22 @@ function getArtistsList() {
 
 function retrieveReleaseInfo(release_url) {
     let release = {
-        //discs: [],
+        discs: [],
         artist_credit: [],
         title: '',
         year: 0,
-        //month: 0,
-        //day: 0,
-        //parent_album_url: '',
-        //labels: [],
-        //format: '',
+        month: 0,
+        day: 0,
+        parent_album_url: '',
+        labels: [],
+        format: '',
         country: '',
-        //type: '',
-        //status: 'official',
-        //packaging: '',
-        //language: '',
-        //script: '',
-        //urls: [],
+        type: '',
+        status: 'official',
+        packaging: '',
+        language: '',
+        script: '',
+        urls: [],
     };
 
     let rdata = getGenericalData();
@@ -106,8 +105,7 @@ function retrieveReleaseInfo(release_url) {
     release.title = $('h1.album_name').text();
 
     release = setreleasedate(release, rdata['Release date']);
-    
-    /*if ('Label' in rdata) {
+    if ('Label' in rdata) {
         // TODO: add case for multiple labels if such a case exist
         let label = rdata['Label'];
         let label_mbid = '';
@@ -124,9 +122,9 @@ function retrieveReleaseInfo(release_url) {
             catno: catno,
             mbid: label_mbid,
         });
-    }*/
+    }
 
-    /*if (rdata['Type'] in ReleaseTypes) {
+    if (rdata['Type'] in ReleaseTypes) {
         let types = ReleaseTypes[rdata['Type']];
         release.type = types[0];
         // NOTE: secondary type may not be selected on MB editor, but it still works, a bug on MB side
@@ -195,10 +193,10 @@ function retrieveReleaseInfo(release_url) {
 
 // Insert button into page under label information
 function insertLink(release, release_url) {
-    //let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
+    let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
     let parameters = MBImport.buildFormParameters(release, edit_note);
 
-    let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildSearchButton(release)}</div>`).hide();
+    let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildFormHTML(parameters)}${MBImport.buildSearchButton(release)}</div>`).hide();
 
     $('h2.band_name').after(mbUI);
     $('#musicbrainz-import form').css({
@@ -215,6 +213,25 @@ function insertLink(release, release_url) {
     mbUI.slideDown();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                   Metal Archives -> MusicBrainz mapping                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+release.type 	primary type release 	secondary release type
+on MA				on MB
+
+Full-length 		Album				Compilation
+Live album			Single				Demo
+Demo				EP					DJ-mix
+Single				Broadcast			Interview
+EP					Other				Live
+Video									Audiobook
+Boxed set								Mixtape/Street
+Split									Remix
+Video/VHS (legacy)						Soundtrack
+Compilation								Spokenword
+Split video
+*/
 
 //ReleaseTypes[MAtype]=["primary type","secondary type on mb"];
 var ReleaseTypes = {
@@ -243,4 +260,3 @@ var ReleaseFormat = {
     Cassette: 'Cassette',
     Digital: 'Digital Media',
 };
-*/
