@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        Import Metal Archives releases into MusicBrainz
+// @name        Search Metal Archives entry on Bandcamp
 // @namespace   https://github.com/sonofevil/musicbrainz-userscripts/
-// @version     2018.2.18.1
-// @description Add a button on Metal Archives release pages allowing to open MusicBrainz release editor with pre-filled data for the selected release
+// @version     2021.1
+// @description Add a button on Metal Archives release pages allowing to search the entry on Bandcamp
 // @downloadURL https://raw.github.com/sonofevil/musicbrainz-userscripts/master/metalarchives_importer.user.js
 // @update      https://raw.github.com/sonofevil/musicbrainz-userscripts/master/metalarchives_importer.user.js
 // @include     http*://www.metal-archives.com/albums/*/*/*
