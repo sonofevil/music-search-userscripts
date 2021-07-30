@@ -219,7 +219,6 @@ function insertLink(release, release_url) {
 /*
 release.type 	primary type release 	secondary release type
 on MA				on MB
-
 Full-length 		Album				Compilation
 Live album			Single				Demo
 Demo				EP					DJ-mix
