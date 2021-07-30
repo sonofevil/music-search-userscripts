@@ -26,19 +26,20 @@ $(document).ready(function () {
 });
 
 function setreleasedate(release, datestring) {
-    if (/^\d{4}$/.exec(datestring)) {
+    release.year = d.getFullYear();
+    /*if (/^\d{4}$/.exec(datestring)) {
         release.year = datestring;
     } else if (datestring.indexOf(',') != -1) {
         let commaindex = datestring.indexOf(',');
         var d = new Date(datestring.substring(0, commaindex - 2) + datestring.substring(commaindex));
         release.year = d.getFullYear();
-      //  release.month = d.getMonth() + 1;
-      //  release.day = d.getDate();
+        release.month = d.getMonth() + 1;
+        release.day = d.getDate();
     } else {
         var d = new Date(`2 ${datestring}`);
         release.year = d.getFullYear();
-       // release.month = d.getMonth() + 1;
-    }
+        release.month = d.getMonth() + 1;
+    }*/
     return release;
 }
 
