@@ -138,7 +138,7 @@ function insertLink(release, release_url) {
 }
 
 //ReleaseTypes[MAtype]=["primary type","secondary type on mb"];
-var ReleaseTypes = {
+/*var ReleaseTypes = {
     'Full-length': ['album'],
     'Live album': ['album', 'live'],
     Demo: ['album', 'demo'],
@@ -147,4 +147,4 @@ var ReleaseTypes = {
     Compilation: ['album', 'compilation'],
     Split: ['album'],
     Collaboration: [''],
-};
+};*/
