@@ -237,7 +237,7 @@ Split video
 */
 
 //ReleaseTypes[MAtype]=["primary type","secondary type on mb"];
-/*var ReleaseTypes = {
+var ReleaseTypes = {
     'Full-length': ['album'],
     'Live album': ['album', 'live'],
     Demo: ['album', 'demo'],
@@ -246,7 +246,7 @@ Split video
     Compilation: ['album', 'compilation'],
     Split: ['album'],
     Collaboration: [''],
-};*/
+};
 
 //ReleaseFormat[MAformat]="MBformat";
 /*var ReleaseFormat = {
