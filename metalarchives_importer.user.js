@@ -67,22 +67,22 @@ function getArtistsList() {
 
 function retrieveReleaseInfo(release_url) {
     let release = {
-        //discs: [],
+        discs: [],
         artist_credit: [],
         title: '',
         year: 0,
         month: 0,
         day: 0,
-        /*parent_album_url: '',
+        parent_album_url: '',
         labels: [],
         format: '',
-        country: '',*/
+        country: '',
         type: '',
-        /*status: 'official',
+        status: 'official',
         packaging: '',
         language: '',
         script: '',
-        urls: [],*/
+        urls: [],
     };
 
     let rdata = getGenericalData();
@@ -203,8 +203,8 @@ function retrieveReleaseInfo(release_url) {
 
 // Insert button into page under label information
 function insertLink(release, release_url) {
-    //let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
-    let parameters = MBImport.buildFormParameters(release, '');
+    let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
+    let parameters = MBImport.buildFormParameters(release, edit_note);
     
                                              //${MBImport.buildFormHTML(parameters)}
     let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildSearchButton(release)}</div>`).hide();
