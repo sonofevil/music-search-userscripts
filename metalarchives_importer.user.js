@@ -42,7 +42,7 @@ function setreleasedate(release, datestring) {
     return release;
 }
 
-function getGenericalData() {
+/*function getGenericalData() {
     let rdata = new Array();
     let keydata = $('dl.float_left dt, dl.float_right dt')
         .map(function () {
@@ -59,7 +59,7 @@ function getGenericalData() {
         rdata[keydata[i]] = valuedata[i];
     }
     return rdata;
-}
+}*/
 
 function getArtistsList() {
     return $.map($('h2.band_name').text().split('/'), $.trim);
@@ -71,21 +71,21 @@ function retrieveReleaseInfo(release_url) {
         artist_credit: [],
         title: '',
         year: 0,
-        month: 0,
-        day: 0,
-        parent_album_url: '',
-        labels: [],
-        format: '',
-        country: '',
-        type: '',
-        status: 'official',
-        packaging: '',
-        language: '',
-        script: '',
-        urls: [],
+        //month: 0,
+        //day: 0,
+        //parent_album_url: '',
+        //labels: [],
+        //format: '',
+        //country: '',
+        //type: '',
+        //status: 'official',
+        //packaging: '',
+        //language: '',
+        //script: '',
+        //urls: [],
     };
 
-    let rdata = getGenericalData();
+    //let rdata = getGenericalData();
     let artists = getArtistsList();
     let joinphrase = '';
     if (artists.length > 1) {
@@ -95,6 +95,7 @@ function retrieveReleaseInfo(release_url) {
             joinphrase = ' & ';
         }
     }
+    
     for (let i = 0; i < artists.length; i++) {
         release.artist_credit.push({
             artist_name: artists[i],
@@ -102,10 +103,12 @@ function retrieveReleaseInfo(release_url) {
             joinphrase: i != artists.length - 1 ? joinphrase : '',
         });
     }
+    
     release.title = $('h1.album_name').text();
 
     release = setreleasedate(release, rdata['Release date']);
-    if ('Label' in rdata) {
+    
+    /*if ('Label' in rdata) {
         // TODO: add case for multiple labels if such a case exist
         let label = rdata['Label'];
         let label_mbid = '';
@@ -122,17 +125,17 @@ function retrieveReleaseInfo(release_url) {
             catno: catno,
             mbid: label_mbid,
         });
-    }
+    }*/
 
-    if (rdata['Type'] in ReleaseTypes) {
+    /*if (rdata['Type'] in ReleaseTypes) {
         let types = ReleaseTypes[rdata['Type']];
         release.type = types[0];
         // NOTE: secondary type may not be selected on MB editor, but it still works, a bug on MB side
         release.secondary_types = types.slice(1);
-    }
+    }*/
 
     // FIXME: multiple vinyls ie. http://www.metal-archives.com/albums/Reverend_Bizarre/III%3A_So_Long_Suckers/415313
-    if (rdata['Format'] in ReleaseFormat) {
+    /*if (rdata['Format'] in ReleaseFormat) {
         release.format = ReleaseFormat[rdata['Format']];
     }
 
@@ -187,7 +190,7 @@ function retrieveReleaseInfo(release_url) {
             artist_credit: [release.artist_credit],
         };
         release.discs[releaseNumber].tracks.push(track);
-    });
+    });*/
     return release;
 }
 
@@ -233,7 +236,7 @@ Split video
 */
 
 //ReleaseTypes[MAtype]=["primary type","secondary type on mb"];
-var ReleaseTypes = {
+/*var ReleaseTypes = {
     'Full-length': ['album'],
     'Live album': ['album', 'live'],
     Demo: ['album', 'demo'],
@@ -242,10 +245,10 @@ var ReleaseTypes = {
     Compilation: ['album', 'compilation'],
     Split: ['album'],
     Collaboration: [''],
-};
+};*/
 
 //ReleaseFormat[MAformat]="MBformat";
-var ReleaseFormat = {
+/*var ReleaseFormat = {
     CD: 'CD',
     '2CD': 'CD',
     Vinyl: 'Vinyl',
@@ -258,4 +261,4 @@ var ReleaseFormat = {
     '12" vinyl (33⅓ RPM)': '12" Vinyl',
     Cassette: 'Cassette',
     Digital: 'Digital Media',
-};
+};*/
