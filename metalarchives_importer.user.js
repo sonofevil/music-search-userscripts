@@ -64,22 +64,9 @@ function getArtistsList() {
 
 function retrieveReleaseInfo(release_url) {
     let release = {
-        //discs: [],
         artist_credit: [],
         title: '',
         year: 0,
-        /*month: 0,
-        day: 0,
-        parent_album_url: '',
-        labels: [],
-        format: '',
-        country: '',
-        type: '',
-        status: 'official',
-        packaging: '',
-        language: '',
-        script: '',
-        urls: [],*/
     };
 
     let rdata = getGenericalData();
@@ -87,14 +74,6 @@ function retrieveReleaseInfo(release_url) {
     let artists = getArtistsList();
     
     let joinphrase = '';
-    
-    /*if (artists.length > 1) {
-        if (rdata['Type'] == 'Split') {
-            joinphrase = ' / ';
-        } else {
-            joinphrase = ' & ';
-        }
-    }*/
     
     for (let i = 0; i < artists.length; i++) {
         release.artist_credit.push({
