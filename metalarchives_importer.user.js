@@ -76,9 +76,9 @@ function retrieveReleaseInfo(release_url) {
         /*parent_album_url: '',
         labels: [],
         format: '',
-        country: '',
+        country: '',*/
         type: '',
-        status: 'official',
+        /*status: 'official',
         packaging: '',
         language: '',
         script: '',
