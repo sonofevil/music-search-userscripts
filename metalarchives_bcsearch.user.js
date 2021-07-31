@@ -10,7 +10,7 @@
 // @require     lib/mbimport.js
 // @require     lib/mbimportstyle.js
 // @require     lib/logger.js
-// @icon        https://raw.githubusercontent.com/sonofevil/musicbrainz-userscripts/master/assets/images/Musicbrainz_import_logo.png
+// @icon        https://github.com/sonofevil/music-search-userscripts/raw/master/assets/mabcs-logo.png
 // ==/UserScript==
 
 // prevent JQuery conflicts, see http://wiki.greasespot.net/@grant
