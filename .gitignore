@@ -7,3 +7,5 @@
 
 # NPM
 node_modules/
+
+.directory
