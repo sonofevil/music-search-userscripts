@@ -88,13 +88,13 @@ function retrieveReleaseInfo(release_url) {
     
     let joinphrase = '';
     
-    if (artists.length > 1) {
+    /*if (artists.length > 1) {
         if (rdata['Type'] == 'Split') {
             joinphrase = ' / ';
         } else {
             joinphrase = ' & ';
         }
-    }
+    }*/
     
     for (let i = 0; i < artists.length; i++) {
         release.artist_credit.push({
