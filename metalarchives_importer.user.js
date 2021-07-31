@@ -113,7 +113,6 @@ function retrieveReleaseInfo(release_url) {
 
 // Insert button into page under label information
 function insertLink(release, release_url) {
-    //let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
     let parameters = MBImport.buildFormParameters(release, '');
     
     let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildSearchButton(release)}</div>`).hide();
