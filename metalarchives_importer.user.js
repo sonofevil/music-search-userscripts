@@ -71,7 +71,7 @@ function retrieveReleaseInfo(release_url) {
         artist_credit: [],
         title: '',
         year: 0,
-        month: 0,
+        /*month: 0,
         day: 0,
         parent_album_url: '',
         labels: [],
@@ -82,7 +82,7 @@ function retrieveReleaseInfo(release_url) {
         packaging: '',
         language: '',
         script: '',
-        urls: [],
+        urls: [],*/
     };
 
     //let rdata = getGenericalData();
@@ -198,8 +198,9 @@ function retrieveReleaseInfo(release_url) {
 function insertLink(release, release_url) {
     let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
     let parameters = MBImport.buildFormParameters(release, edit_note);
-
-    let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildFormHTML(parameters)}${MBImport.buildSearchButton(release)}</div>`).hide();
+    
+                                             //${MBImport.buildFormHTML(parameters)}
+    let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildSearchButton(release)}</div>`).hide();
 
     $('h2.band_name').after(mbUI);
     $('#musicbrainz-import form').css({
