@@ -32,12 +32,9 @@ function setreleasedate(release, datestring) {
         let commaindex = datestring.indexOf(',');
         var d = new Date(datestring.substring(0, commaindex - 2) + datestring.substring(commaindex));
         release.year = d.getFullYear();
-        //release.month = d.getMonth() + 1;
-        //release.day = d.getDate();
     } else {
         var d = new Date(`2 ${datestring}`);
         release.year = d.getFullYear();
-        //release.month = d.getMonth() + 1;
     }
     return release;
 }
@@ -119,7 +116,6 @@ function insertLink(release, release_url) {
     let edit_note = MBImport.makeEditNote(release_url, 'Metal Archives');
     let parameters = MBImport.buildFormParameters(release, edit_note);
     
-                                             //${MBImport.buildFormHTML(parameters)}
     let mbUI = $(`<div id="musicbrainz-import">${MBImport.buildSearchButton(release)}</div>`).hide();
 
     $('h2.band_name').after(mbUI);
@@ -136,15 +132,3 @@ function insertLink(release, release_url) {
 
     mbUI.slideDown();
 }
-
-//ReleaseTypes[MAtype]=["primary type","secondary type on mb"];
-/*var ReleaseTypes = {
-    'Full-length': ['album'],
-    'Live album': ['album', 'live'],
-    Demo: ['album', 'demo'],
-    Single: ['single'],
-    EP: ['ep'],
-    Compilation: ['album', 'compilation'],
-    Split: ['album'],
-    Collaboration: [''],
-};*/
