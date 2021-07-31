@@ -67,7 +67,7 @@ function getArtistsList() {
 
 function retrieveReleaseInfo(release_url) {
     let release = {
-        discs: [],
+        //discs: [],
         artist_credit: [],
         title: '',
         year: 0,
@@ -85,9 +85,12 @@ function retrieveReleaseInfo(release_url) {
         urls: [],*/
     };
 
-    //let rdata = getGenericalData();
+    let rdata = getGenericalData();
+    
     let artists = getArtistsList();
+    
     let joinphrase = '';
+    
     if (artists.length > 1) {
         if (rdata['Type'] == 'Split') {
             joinphrase = ' / ';
@@ -149,6 +152,7 @@ function retrieveReleaseInfo(release_url) {
     }
 
     let identifiers = $('#album_tabs_notes > div:nth-child(2)').find('p:not([class])').contents();
+    
     for (let j = 0; j < identifiers.length; j++) {
         if (identifiers[j].textContent.indexOf('Barcode:') != -1) {
             release.barcode = $.trim(identifiers[j].textContent.substring(8));
@@ -158,16 +162,19 @@ function retrieveReleaseInfo(release_url) {
 
     // URLs
     let link_type = MBImport.URL_TYPES;
+    
     release.urls.push({
         url: release_url,
         link_type: link_type.other_databases,
     });
 
     let releaseNumber = 0;
+    
     let disc = {
         tracks: [],
         format: release.format,
     };
+    
     release.discs.push(disc);
 
     let tracksline = $('table.table_lyrics tr.even,table.table_lyrics tr.odd');
