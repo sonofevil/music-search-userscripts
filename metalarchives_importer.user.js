@@ -42,7 +42,7 @@ function setreleasedate(release, datestring) {
     return release;
 }
 
-/*function getGenericalData() {
+function getGenericalData() {
     let rdata = new Array();
     let keydata = $('dl.float_left dt, dl.float_right dt')
         .map(function () {
@@ -59,7 +59,7 @@ function setreleasedate(release, datestring) {
         rdata[keydata[i]] = valuedata[i];
     }
     return rdata;
-}*/
+}
 
 function getArtistsList() {
     return $.map($('h2.band_name').text().split('/'), $.trim);
