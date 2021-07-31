@@ -64,11 +64,11 @@ function getArtistsList() {
 
 function retrieveReleaseInfo(release_url) {
     let release = {
-        discs: [],
+        //discs: [],
         artist_credit: [],
         title: '',
         year: 0,
-        month: 0,
+        /*month: 0,
         day: 0,
         parent_album_url: '',
         labels: [],
@@ -79,7 +79,7 @@ function retrieveReleaseInfo(release_url) {
         packaging: '',
         language: '',
         script: '',
-        urls: [],
+        urls: [],*/
     };
 
     let rdata = getGenericalData();
