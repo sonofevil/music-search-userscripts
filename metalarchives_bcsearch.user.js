@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Search Metal Archives entry on Bandcamp
 // @namespace   https://github.com/sonofevil/musicbrainz-userscripts/
-// @version     2021.1
+// @version     2026.1
 // @description Add a button on Metal Archives release pages allowing to search the entry on Bandcamp
 // @downloadURL https://raw.github.com/sonofevil/musicbrainz-userscripts/master/metalarchives_importer.user.js
 // @update      https://raw.github.com/sonofevil/musicbrainz-userscripts/master/metalarchives_importer.user.js
